@@ -10,6 +10,7 @@ ring_sim (device)  ──sync packets──▶  api (cloud)  ──insights─�
 |---|---|
 | `ring_sim/` | Simulates a ring: generates a night of samples, sends them in numbered, checksummed packets, and can drop, duplicate, reorder or corrupt packets, or disconnect mid-sync |
 | `api/` | FastAPI + SQLite. Rebuilds the night from packets and computes a sleep score and a readiness score (0–100) |
+| `app/` | Android app (Kotlin, Compose): a Today screen with the two scores, a sync badge and a Sync now button. See [docs/android-app.md](docs/android-app.md) |
 | `fixtures/nights/` | Named nights shared by every test layer: `good_night`, `short_night`, `restless_night`, `missing_data` |
 
 ## Run
@@ -17,7 +18,8 @@ ring_sim (device)  ──sync packets──▶  api (cloud)  ──insights─�
 ```bash
 pip install -r requirements-dev.txt
 pytest                      # all tests
-python -m ring_sim          # regenerate fixtures/nights/*.json (deterministic)
+python -m ring_sim generate                   # regenerate fixtures/nights/*.json (deterministic)
+python -m ring_sim sync good_night            # sync a fixture night to a running API (--drop 3,5 loses packets)
 
 # API in Docker
 docker compose up --build
@@ -47,4 +49,4 @@ See [docs/test-plan.md](docs/test-plan.md) for scope, risks and exit criteria, a
 - Packets may arrive in any order; the night is rebuilt by `seq`.
 - Missing sequence numbers give `sync_status: partial` and are listed in `missing_packets`. Sending the missing packets later completes the night.
 
-`GET /nights/{night_id}` returns the sync status plus `sleep_score` and `readiness_score`.
+`GET /nights/{night_id}` returns the sync status plus `sleep_score` and `readiness_score`. `GET /nights/latest` returns the same for the night that most recently received a packet; the app's Today screen uses it.
