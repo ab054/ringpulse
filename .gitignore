@@ -3,3 +3,12 @@ __pycache__/
 .pytest_cache/
 .venv/
 *.db
+
+# Android
+.gradle/
+build/
+local.properties
+.idea/
+*.iml
+.cxx/
+captures/
