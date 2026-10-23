@@ -1,0 +1,12 @@
+{
+  "type": "object",
+  "required": ["category", "fix_target", "root_cause", "evidence", "patch", "confidence"],
+  "properties": {
+    "category": {"enum": ["app_regression", "test_bug", "intended_change", "flaky", "environment"]},
+    "fix_target": {"enum": ["app", "test", "none"]},
+    "root_cause": {"type": "string", "maxLength": 600},
+    "evidence": {"type": "array", "items": {"type": "string"}, "maxItems": 8},
+    "patch": {"type": "string"},
+    "confidence": {"enum": ["low", "medium", "high"]}
+  }
+}

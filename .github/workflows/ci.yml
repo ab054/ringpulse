@@ -125,6 +125,61 @@ jobs:
           path: artifacts/e2e/
           if-no-files-found: ignore
 
+  # When a backend or emulator test fails on a pull request, a bot reads the failure, diagnoses it, tries its
+  # suggested fix in a scratch copy and comments. It never pushes or merges. See docs/triage.md.
+  triage:
+    name: Failure triage
+    needs: [select, backend, mobile]
+    if: >-
+      always() && github.event_name == 'pull_request' &&
+      github.event.pull_request.head.repo.full_name == github.repository &&
+      (needs.backend.result == 'failure' || needs.mobile.result == 'failure')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: |
+            requirements-dev.txt
+            api/requirements.txt
+      - run: pip install -r requirements-dev.txt
+      - uses: actions/download-artifact@v4
+        with:
+          path: results
+          pattern: "*"
+      - name: Diagnose the failures
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          PR_BODY: ${{ github.event.pull_request.body }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: >-
+          python -m triage
+          --junit backend=results/backend-junit/junit-backend.xml e2e=results/e2e-artifacts/junit.xml
+          --artifacts results/e2e-artifacts --base "$BASE_SHA" --head HEAD
+      - name: Comment on the pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          if [ -s triage-report.md ]; then
+            gh pr comment "$PR_NUMBER" --body-file triage-report.md --edit-last --create-if-none
+          fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: triage-results
+          path: |
+            triage-results.json
+            triage-report.md
+          if-no-files-found: ignore
+
   # One stable name for branch protection: green when every job that had to run passed.
   # Skipped jobs (layers not selected) count as fine; failed or cancelled ones do not.
   result:
