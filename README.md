@@ -26,6 +26,19 @@ curl localhost:8000/health
 
 Readiness has a feature flag: `RINGPULSE_READINESS_FORMULA=v2` switches to the new weights.
 
+## Tests
+
+Every test has a layer marker, so you can run one layer at a time:
+
+```bash
+pytest -m unit    # scoring and packet parsing, incl. Hypothesis properties
+pytest -m data    # golden nights within tolerance
+pytest -m api     # sync endpoint over HTTP
+pytest -m sync    # ring simulator faults: loss, duplicates, reordering, corruption, disconnects
+```
+
+See [docs/test-plan.md](docs/test-plan.md) for scope, risks and exit criteria, and [docs/known-issues.md](docs/known-issues.md) for open findings.
+
 ## Sync protocol
 
 `POST /sync` with `{device_id, night_id, total_packets, packets: [{seq, samples, checksum}]}`.
