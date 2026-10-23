@@ -1,7 +1,7 @@
 """Synthetic nights for the ring simulator.
 
 Deterministic: the same profile always gives the same night. Run
-`python -m ring_sim` to (re)write fixtures/nights/*.json.
+`python -m ring_sim generate` to (re)write fixtures/nights/*.json.
 """
 import json
 import math

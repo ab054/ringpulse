@@ -45,7 +45,7 @@ Every test carries one layer marker, enforced at collection time, so CI and test
 
 ## 4. Test data
 
-Four named nights in `fixtures/nights/`, generated deterministically by `python -m ring_sim` and shared by every layer, so a failure at one layer can be traced to the others.
+Four named nights in `fixtures/nights/`, generated deterministically by `python -m ring_sim generate` and shared by every layer, so a failure at one layer can be traced to the others.
 
 | Night | Purpose |
 |---|---|

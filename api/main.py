@@ -95,8 +95,7 @@ def create_app(db_path: str | None = None) -> FastAPI:
 
         return SyncResponse(**status.model_dump(), accepted=accepted, duplicates=duplicates, rejected=rejected)
 
-    @app.get("/nights/{night_id}", response_model=Insights)
-    def night_insights(night_id: str) -> Insights:
+    def insights_for(night_id: str) -> Insights:
         with store.connect() as conn:
             night = conn.execute("SELECT total_packets FROM nights WHERE night_id = ?", (night_id,)).fetchone()
             if night is None:
@@ -116,5 +115,22 @@ def create_app(db_path: str | None = None) -> FastAPI:
             readiness_score=readiness_score(metrics, formula) if metrics else None,
             readiness_formula=formula,
         )
+
+    # Declared before /nights/{night_id} so "latest" is not taken for a night id.
+    @app.get("/nights/latest", response_model=Insights)
+    def latest_night() -> Insights:
+        """The night that most recently received a packet; if none has, the most recently registered one.
+        This is what the app's Today screen shows."""
+        with store.connect() as conn:
+            row = conn.execute("SELECT night_id FROM packets ORDER BY rowid DESC LIMIT 1").fetchone()
+            if row is None:
+                row = conn.execute("SELECT night_id FROM nights ORDER BY rowid DESC LIMIT 1").fetchone()
+        if row is None:
+            raise HTTPException(404, "no nights yet")
+        return insights_for(row["night_id"])
+
+    @app.get("/nights/{night_id}", response_model=Insights)
+    def night_insights(night_id: str) -> Insights:
+        return insights_for(night_id)
 
     return app
