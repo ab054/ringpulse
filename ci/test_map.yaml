@@ -1,0 +1,60 @@
+# Which test layers a changed file can break. Read by ci/select_tests.py.
+#
+# The FIRST rule whose glob matches a file decides its layers, so keep specific rules above general
+# ones (api/scoring.py above api/*). `*` matches across folders. A file that matches no rule makes CI run everything:
+# when the map does not know a file, running more is the safe mistake.
+# `layers: []` means "no test can be affected" (docs, for example).
+#
+# Layers: unit, data, api, sync, e2e. e2e is the slow one (emulator), which is why this exists.
+rules:
+  - paths: ["docs/*", "*.md", ".gitignore", "LICENSE"]
+    layers: []
+    why: documentation only
+
+  - paths: ["api/scoring.py"]
+    layers: [unit, data, api, e2e]
+    why: scores shown to the user come from here
+  - paths: ["api/protocol.py", "api/models.py"]
+    layers: [unit, api, sync, e2e]
+    why: packet validation and the sync contract
+  - paths: ["api/*"]
+    layers: [unit, data, api, sync, e2e]
+    why: any other API change can reach every layer
+  - paths: ["docker-compose.yml"]
+    layers: [api]
+    why: how the API is started
+
+  - paths: ["ring_sim/*"]
+    layers: [unit, data, sync, e2e]
+    why: the simulator produces the packets all of these send
+  - paths: ["fixtures/*"]
+    layers: [unit, data, api, sync, e2e]
+    why: golden nights feed every layer
+
+  - paths: ["app/*", "gradle/*", "gradlew", "gradlew.bat", "build.gradle.kts", "settings.gradle.kts", "gradle.properties"]
+    layers: [e2e]
+    why: the Android app is only exercised through the emulator tests
+
+  - paths: ["tests/unit/*"]
+    layers: [unit]
+    why: the tests themselves
+  - paths: ["tests/data/*"]
+    layers: [data]
+    why: the tests themselves
+  - paths: ["tests/api/*"]
+    layers: [api]
+    why: the tests themselves
+  - paths: ["tests/sync/*"]
+    layers: [sync]
+    why: the tests themselves
+  - paths: ["tests/e2e/*"]
+    layers: [unit, api, e2e]
+    why: page object and harness have unit and api tests next to the emulator ones
+  - paths: ["tests/ci/*", "ci/*"]
+    layers: [unit]
+    why: the selector is tested by unit tests
+
+  # Shared test plumbing and CI itself: any layer could change behaviour.
+  - paths: ["tests/conftest.py", "pytest.ini", "requirements*.txt", ".github/*"]
+    layers: [unit, data, api, sync, e2e]
+    why: shared setup, dependencies or the pipeline itself

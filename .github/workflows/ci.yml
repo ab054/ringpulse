@@ -1,0 +1,142 @@
+name: CI
+
+# Pull requests run only the test layers the change can affect (see ci/test_map.yaml).
+# Pushes to main, the nightly schedule and manual runs always run everything.
+# Add the label `run-all-tests` to a pull request to force a full run.
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, labeled, unlabeled]
+  push:
+    branches: [main]
+  schedule:
+    - cron: "17 3 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  select:
+    name: Select tests
+    runs-on: ubuntu-latest
+    outputs:
+      layers: ${{ steps.select.outputs.layers }}
+      backend: ${{ steps.select.outputs.backend }}
+      backend_markers: ${{ steps.select.outputs.backend_markers }}
+      mobile: ${{ steps.select.outputs.mobile }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pyyaml
+      - id: select
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          PR_LABELS: ${{ join(github.event.pull_request.labels.*.name, ',') }}
+        run: python -m ci.select_tests --base "$BASE_SHA" --head "$HEAD_SHA"
+
+  backend:
+    name: Backend (${{ needs.select.outputs.backend_markers }})
+    needs: select
+    if: needs.select.outputs.backend == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: |
+            requirements-dev.txt
+            api/requirements.txt
+      - run: pip install -r requirements-dev.txt
+      - name: Run the selected layers
+        env:
+          MARKERS: ${{ needs.select.outputs.backend_markers }}
+        run: python -m pytest -m "$MARKERS" -v --junitxml=junit-backend.xml
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: backend-junit
+          path: junit-backend.xml
+
+  mobile:
+    name: Emulator tests
+    needs: select
+    if: needs.select.outputs.mobile == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Enable KVM (hardware acceleration for the emulator)
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: |
+            requirements-dev.txt
+            api/requirements.txt
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install test dependencies and Appium
+        run: |
+          pip install -r requirements-dev.txt
+          npm install -g appium
+          appium driver install uiautomator2
+
+      - name: Build the debug APK
+        run: ./gradlew assembleDebug --no-daemon
+
+      - name: Run the emulator tests
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          target: google_apis
+          arch: x86_64
+          profile: pixel_6
+          disable-animations: true
+          script: ./ci/run_e2e.sh
+
+      - name: Upload failure evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: e2e-artifacts
+          path: artifacts/e2e/
+          if-no-files-found: ignore
+
+  # One stable name for branch protection: green when every job that had to run passed.
+  # Skipped jobs (layers not selected) count as fine; failed or cancelled ones do not.
+  result:
+    name: CI result
+    needs: [select, backend, mobile]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - env:
+          RESULTS: ${{ join(needs.*.result, ' ') }}
+        run: |
+          echo "job results: $RESULTS"
+          case " $RESULTS " in
+            *" failure "*|*" cancelled "*) echo "A required job did not pass"; exit 1 ;;
+          esac
