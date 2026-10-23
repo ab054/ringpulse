@@ -1,0 +1,10 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: api/Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      # Feature flag: v1 is the current readiness formula, v2 the new one under test.
+      RINGPULSE_READINESS_FORMULA: ${RINGPULSE_READINESS_FORMULA:-v1}
