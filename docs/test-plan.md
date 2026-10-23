@@ -27,7 +27,7 @@
 | R8 | A formula change moves scores too far | Users see a jump after a release | Data: `v2` within 5 points of `v1` on every golden night |
 | R9 | Ring and API disagree on the wire format | Every packet rejected in the field | Unit: contract test on checksums for all fixture packets |
 | R10 | Wrong configuration breaks insights while `/health` is green | Silent outage | Known issue KI-1 (open) |
-| R11 | The app shows stale or wrong state after sync problems | User confusion | E2E (planned) |
+| R11 | The app shows stale or wrong state after sync problems | User confusion | E2E: partial-sync badge, later completion, API unreachable keeps last scores |
 | R12 | Slow sync or slow app start | Poor experience | Performance (planned) |
 
 ## 3. Test layers
@@ -40,7 +40,7 @@ Every test carries one layer marker, enforced at collection time, so CI and test
 | Data validation (`data`) | Scores for named nights against golden values within tolerance; flag comparison | Pytest + fixture nights | Done |
 | API / integration (`api`) | Sync endpoint, rebuilding the night, error codes, persistence | Pytest + FastAPI test client | Done |
 | Sync fault injection (`sync`) | Ring → API under packet loss, duplicates, reordering, corruption, disconnects | Ring simulator + Pytest | Done |
-| Mobile E2E (`e2e`) | What the user sees on the phone after a sync | Appium (Python), Android emulator | Planned |
+| Mobile E2E (`e2e`) | What the user sees on the phone after a sync | Appium (Python, UiAutomator2), Android emulator | Written; runs locally, not in CI yet. See [e2e-tests.md](e2e-tests.md) |
 | Performance | Sync time for one night, app cold start | Pytest timing, `adb` | Planned |
 
 ## 4. Test data
@@ -63,7 +63,7 @@ Golden values carry a tolerance of ±2 points. They were reviewed against the sc
 | Local, in-process | API under Pytest with a temporary database per test |
 | Docker Compose | The API as deployed (needs a running Docker daemon) |
 | GitHub Actions | Every pull request and a nightly full run (planned) |
-| Android emulator | App tests (planned); real devices in a device farm for the nightly run are a stretch goal |
+| Android emulator | App tests (run locally; CI planned); real devices in a device farm for the nightly run are a stretch goal |
 
 ## 6. Entry and exit criteria
 

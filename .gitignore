@@ -15,3 +15,6 @@ captures/
 
 # macOS
 .DS_Store
+
+# Test evidence from failed emulator runs
+artifacts/
