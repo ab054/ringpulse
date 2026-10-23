@@ -37,7 +37,10 @@ pytest -m unit    # scoring and packet parsing, incl. Hypothesis properties
 pytest -m data    # golden nights within tolerance
 pytest -m api     # sync endpoint over HTTP
 pytest -m sync    # ring simulator faults: loss, duplicates, reordering, corruption, disconnects
+pytest -m e2e     # the app on an Android emulator via Appium (skipped when no emulator setup is found)
 ```
+
+The emulator tests need an emulator, an Appium server and the debug APK: see [docs/e2e-tests.md](docs/e2e-tests.md).
 
 See [docs/test-plan.md](docs/test-plan.md) for scope, risks and exit criteria, and [docs/known-issues.md](docs/known-issues.md) for open findings.
 

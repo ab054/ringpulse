@@ -65,14 +65,15 @@ Run the app and press **Sync now**.
 | Stop the API, press Sync now | `Sync failed` and an error message; last scores stay |
 | Fresh API with no syncs | `No night yet` |
 
-## Move the project into the repo
+## Building from the repo
 
-1. Copy the whole project folder to `<repo>/app/`, without `.gradle/`, `build/`, `.idea/` and `local.properties` (the generated `.gitignore` already excludes them from git).
-2. Delete `android-sources/` in the same commit: the files now live under `app/app/src/main/java/com/ringpulse/app/`.
-3. Check that a debug build works from the command line:
+The repository root is the Gradle project and `app/` is the module, so no Android Studio is needed to build:
 
-   ```bash
-   cd app
-   ./gradlew assembleDebug
-   # -> app/app/build/outputs/apk/debug/app-debug.apk   (the file Appium installs)
-   ```
+```bash
+export JAVA_HOME="/Applications/Android Studio.app/Contents/jbr/Contents/Home"   # macOS; any JDK 17+ works
+export ANDROID_HOME="$HOME/Library/Android/sdk"
+./gradlew assembleDebug
+# -> app/build/outputs/apk/debug/app-debug.apk   (the file Appium installs)
+```
+
+The first build downloads Gradle and the JDK the project asks for (`gradle/gradle-daemon-jvm.properties`), so it needs internet and takes a few minutes.
