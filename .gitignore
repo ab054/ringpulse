@@ -12,3 +12,6 @@ local.properties
 *.iml
 .cxx/
 captures/
+
+# macOS
+.DS_Store
