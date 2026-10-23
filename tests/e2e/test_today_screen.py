@@ -3,7 +3,10 @@
 The API starts empty for every test and the app starts with clean data. The ring simulator plays the
 ring: a test syncs a night to the API, then taps Sync now in the app and checks the screen."""
 import pytest
-from screens import TodayScreen
+
+pytest.importorskip("appium", reason="Appium client not installed: pip install -r requirements-dev.txt")
+
+from screens import TodayScreen  # noqa: E402
 
 from ring_sim import faults
 

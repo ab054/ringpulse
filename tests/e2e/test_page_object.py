@@ -1,8 +1,11 @@
 """The page object against a fake driver: checks how it finds and waits, with no emulator needed."""
 import pytest
-from appium.webdriver.common.appiumby import AppiumBy
-from screens import TodayScreen
-from selenium.common.exceptions import NoSuchElementException
+
+pytest.importorskip("appium", reason="Appium client not installed: pip install -r requirements-dev.txt")
+
+from appium.webdriver.common.appiumby import AppiumBy  # noqa: E402
+from screens import TodayScreen  # noqa: E402
+from selenium.common.exceptions import NoSuchElementException  # noqa: E402
 
 pytestmark = pytest.mark.unit
 

@@ -10,8 +10,6 @@ import os
 
 import httpx
 import pytest
-from appium import webdriver
-from appium.options.android import UiAutomator2Options
 from harness import API_URL, APK_PATH, APPIUM_URL, ApiServer, save_failure_artifacts
 
 from ring_sim import RingSimulator, load_night
@@ -58,6 +56,10 @@ def appium_ready():
 @pytest.fixture
 def driver(request, appium_ready, api_server):
     """A fresh app session per test: the app is reinstalled with clean data, so no test sees another's state."""
+    pytest.importorskip("appium")
+    from appium import webdriver
+    from appium.options.android import UiAutomator2Options
+
     options = UiAutomator2Options()
     options.platform_name = "Android"
     options.app = str(APK_PATH)
