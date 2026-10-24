@@ -268,3 +268,12 @@ def test_report_explains_intended_changes():
     text = report.render([result])
     assert "changed this behaviour on purpose" in text and "confirm" in text
     assert report.render([]) == ""
+
+
+def test_evidence_is_code_so_quoted_comments_and_markdown_stay_literal():
+    result = {"id": "t", "kind": "backend", "verification": {"status": "not attempted", "detail": ""},
+              "diagnosis": {**GOOD, "source": "model", "patch": "", "evidence": ["# 96 samples = 8 h asleep.", "a ``` b"]}}
+    text = report.render([result])
+    block = text.split("```text\n")[1].split("\n```")[0]
+    assert block.splitlines()[0] == "# 96 samples = 8 h asleep."   # inside a code block it is not a heading
+    assert "> #" not in text and "```" not in block
