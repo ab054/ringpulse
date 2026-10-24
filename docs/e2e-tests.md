@@ -54,6 +54,14 @@ The evidence is saved to `artifacts/e2e/<test name>/` (git-ignored):
 
 A `*.error.txt` file next to them means that piece could not be captured (for example the session had died).
 
+## System dialogs on a slow emulator
+
+CI emulators are slow at start, and Android may then put an "isn't responding" dialog (an ANR, for example "Pixel Launcher isn't responding") on top of the app. Appium cannot see the app behind it, so the Today screen looks missing and every test fails in setup. This was the cause of the CI failures seen so far (found from the saved emulator screenshot).
+
+Before each test the `driver` fixture calls `settle_device` (`harness.py`): if the Today screen is not visible it presses **Wait** on such a dialog and brings the app back to the front, for up to 30 seconds, and prints what it had to do (`[e2e] device needed help ...`). It never fails a test itself. CI also uses the lighter `default` Android image instead of `google_apis`, which does not need Google services.
+
+If it happens often, that line in the log is the measure: it counts how often the emulator needed help.
+
 ## Settings
 
 | Environment variable | Default | Meaning |

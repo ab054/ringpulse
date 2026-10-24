@@ -10,7 +10,7 @@ import os
 
 import httpx
 import pytest
-from harness import API_URL, APK_PATH, APPIUM_URL, ApiServer, save_failure_artifacts, failed_in_test
+from harness import API_URL, APK_PATH, APPIUM_URL, ApiServer, save_failure_artifacts, settle_device, failed_in_test
 
 from ring_sim import RingSimulator, load_night
 
@@ -71,6 +71,9 @@ def driver(request, appium_ready, api_server):
 
     session = webdriver.Remote(APPIUM_URL, options=options)
     session.implicitly_wait(0)  # explicit waits only, so a missing element fails fast and clearly
+    notes = settle_device(session)
+    if notes:
+        print(f"[e2e] device needed help before {request.node.name}: {'; '.join(notes)}")
     yield session
 
     if failed_in_test(request.node):
