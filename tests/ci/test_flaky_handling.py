@@ -227,3 +227,22 @@ def test_the_health_job_never_runs_on_pull_requests_and_only_it_can_write():
     assert all("contents" in j.get("permissions", {"contents": "read"}) and j.get("permissions", {}).get("contents", "read") == "read"
                for name, j in jobs.items() if name != "health")
     assert "health" not in jobs["result"]["needs"]      # recording history must never decide whether a PR is green
+
+
+def test_nothing_to_change_does_not_create_an_empty_quarantine_file(tmp_path):
+    """The nightly job used to open a pull request adding an empty file, every run."""
+    path = tmp_path / "quarantine.yaml"
+    assert hl.apply_quarantine(path, [], []) is False
+    assert not path.exists()
+
+
+def test_main_runs_are_never_cancelled_and_a_cancelled_run_is_not_recorded_as_health():
+    workflow = yaml.safe_load((ROOT / ".github/workflows/ci.yml").read_text())
+    assert "run_id" in workflow["concurrency"]["group"]                      # every non-PR run has its own group
+    assert "pull_request" in workflow["concurrency"]["cancel-in-progress"]   # only PR runs are cancelled by newer pushes
+    assert "'cancelled'" in workflow["jobs"]["health"]["if"]
+
+
+def test_the_nightly_job_does_not_open_a_second_quarantine_pull_request():
+    workflow = (ROOT / ".github/workflows/ci.yml").read_text()
+    assert 'startswith("bot/quarantine-")' in workflow

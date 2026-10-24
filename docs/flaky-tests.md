@@ -46,7 +46,7 @@ python -m ci.health quarantine --health health.json --file quarantine.yaml
 
 In the repository settings, Actions → General → Workflow permissions, tick **Allow GitHub Actions to create and approve pull requests**. Without it the nightly job still records health, but cannot open the quarantine pull request (that step is allowed to fail so it never turns the nightly run red).
 
-A pull request created by the built-in token does not start CI by itself; push an empty commit or close and reopen it to run the checks.
+Only one quarantine pull request is open at a time, and none is opened when there is nothing to change. GitHub may hold the checks of a pull request opened by the bot until someone approves the run; the change is a small YAML edit, so review it like any other.
 
 ## Known limits
 
