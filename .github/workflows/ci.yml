@@ -12,9 +12,11 @@ on:
     - cron: "17 3 * * *"
   workflow_dispatch:
 
+# A new push to a pull request cancels the older run of that PR. Runs on main (merges, manual, nightly) are never
+# cancelled: each one is a result we want, and the health history needs it.
 concurrency:
-  group: ci-${{ github.event.pull_request.number || github.ref }}
-  cancel-in-progress: true
+  group: ci-${{ github.event.pull_request.number || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 permissions:
   contents: read
@@ -191,7 +193,8 @@ jobs:
   health:
     name: Test health
     needs: [select, backend, mobile]
-    if: always() && github.event_name != 'pull_request'
+    # a cancelled test job leaves partial results, which must not be recorded as a run
+    if: always() && github.event_name != 'pull_request' && needs.backend.result != 'cancelled' && needs.mobile.result != 'cancelled'
     runs-on: ubuntu-latest
     concurrency:
       group: ci-health
@@ -229,7 +232,10 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           python -m ci.health quarantine --health health.json --file quarantine.yaml | tee quarantine-change.json
-          if [ -n "$(git status --porcelain quarantine.yaml)" ]; then
+          OPEN=$(gh pr list --state open --json headRefName --jq '[.[] | select(.headRefName | startswith("bot/quarantine-"))] | length')
+          if [ "$OPEN" != "0" ]; then
+            echo "A quarantine pull request is already open; not opening another."
+          elif [ -n "$(git status --porcelain quarantine.yaml)" ]; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             BRANCH="bot/quarantine-$GITHUB_RUN_ID"
