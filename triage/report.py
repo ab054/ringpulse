@@ -24,7 +24,9 @@ def render(results: list[dict]) -> str:
         lines += ["", "---", f"### `{r['id']}`", "",
                   f"**{d['category'] or 'no diagnosis'}** ({SOURCE_NOTE.get(d['source'], d['source'])}). {d['root_cause']}", ""]
         if d["evidence"]:
-            lines += ["Evidence:", *[f"> {_cell(e)}" for e in d["evidence"]], ""]
+            # a code block, not a quote: quoted source lines such as "# comment" would render as headings
+            quoted = [e.replace("```", "'''").replace("\n", " ") for e in d["evidence"]]
+            lines += ["Evidence:", "", "```text", *quoted, "```", ""]
         if d["category"] == "intended_change":
             lines += ["The pull request changed this behaviour on purpose. Update the expected value in the test, "
                       "and confirm the new behaviour with whoever owns it.", ""]
