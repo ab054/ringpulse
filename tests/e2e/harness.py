@@ -70,6 +70,12 @@ class ApiServer:
             return False
 
 
+def failed_in_test(node) -> bool:
+    """True if the test failed in setup (a fixture such as 'wait for the Today screen') or in its body.
+    Checking only the body missed every setup failure, which is exactly when the emulator itself is the suspect."""
+    return any(getattr(getattr(node, f"rep_{phase}", None), "failed", False) for phase in ("setup", "call"))
+
+
 def save_failure_artifacts(session, test_name: str, root: Path = ARTIFACTS_DIR) -> Path:
     """Screenshot, page source and logcat for a failed test. Never raises: capturing must not hide the failure."""
     folder = root / re.sub(r"[^A-Za-z0-9_.-]+", "_", test_name)
@@ -90,3 +96,47 @@ def save_failure_artifacts(session, test_name: str, root: Path = ARTIFACTS_DIR) 
         ),
     )
     return folder
+
+
+# ---- a slow emulator shows system dialogs on top of the app ---------------------------------------------------
+# CI emulators are slow at start; Android then puts a "<something> isn't responding" dialog (an ANR) over the app,
+# and Appium cannot see the app behind it. This was the cause of whole runs failing in setup.
+# Plain strings (not AppiumBy) keep this module free of the Appium import.
+APP_ID = "com.ringpulse.app"
+BY_XPATH, BY_ACCESSIBILITY_ID = "xpath", "accessibility id"
+NOT_RESPONDING_TITLE = '//*[contains(@text, "isn\'t responding")]'
+WAIT_BUTTON = '//*[@text="Wait"]'
+
+
+def dismiss_not_responding_dialog(driver) -> bool:
+    """Press 'Wait' on an 'isn't responding' dialog. True if one was there."""
+    if not driver.find_elements(BY_XPATH, NOT_RESPONDING_TITLE):
+        return False
+    buttons = driver.find_elements(BY_XPATH, WAIT_BUTTON)
+    if not buttons:
+        return False
+    buttons[0].click()
+    return True
+
+
+def settle_device(driver, *, ready_id: str = "today_title", timeout: float = 30.0, poll: float = 1.0,
+                  sleep=time.sleep, clock=time.monotonic) -> list[str]:
+    """Get the app in front of the tests: dismiss 'not responding' dialogs and bring the app back.
+
+    Returns notes about what it had to do (empty when the device was fine). It never raises and never fails a test:
+    if the screen still is not there, the test's own wait fails with the usual evidence."""
+    notes: list[str] = []
+    deadline = clock() + timeout
+    while True:
+        try:
+            if driver.find_elements(BY_ACCESSIBILITY_ID, ready_id):
+                return notes
+            if dismiss_not_responding_dialog(driver):
+                notes.append("dismissed a 'not responding' dialog")
+                driver.activate_app(APP_ID)
+        except Exception as error:  # noqa: BLE001 - a hiccup here must not hide the real test result
+            notes.append(f"{type(error).__name__}: {error}")
+        if clock() >= deadline:
+            notes.append(f"{ready_id} still not visible after {timeout:g}s")
+            return notes
+        sleep(poll)

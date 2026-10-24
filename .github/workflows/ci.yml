@@ -61,12 +61,17 @@ jobs:
       - name: Run the selected layers
         env:
           MARKERS: ${{ needs.select.outputs.backend_markers }}
-        run: python -m pytest -m "$MARKERS" -v --junitxml=junit-backend.xml
+        # A failed test is retried once. One that then passes is reported as flaky, never as a plain pass.
+        run: >-
+          python -m pytest -m "$MARKERS" -v --reruns 1 --reruns-delay 1
+          --junitxml=junit-backend.xml --results-json=results-backend.json
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: backend-junit
-          path: junit-backend.xml
+          path: |
+            junit-backend.xml
+            results-backend.json
 
   mobile:
     name: Emulator tests
@@ -111,9 +116,10 @@ jobs:
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 34
-          target: google_apis
+          target: default
           arch: x86_64
           profile: pixel_6
+          ram-size: 4096M
           disable-animations: true
           script: ./ci/run_e2e.sh
 
@@ -179,6 +185,63 @@ jobs:
             triage-results.json
             triage-report.md
           if-no-files-found: ignore
+
+  # Records every run in health.json on the `ci-health` branch and, on the nightly run, opens a pull request that
+  # quarantines tests which keep flaking. See docs/flaky-tests.md.
+  health:
+    name: Test health
+    needs: [select, backend, mobile]
+    if: always() && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    concurrency:
+      group: ci-health
+      cancel-in-progress: false
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pyyaml
+      - uses: actions/download-artifact@v4
+        with:
+          path: results
+          pattern: "*"
+      - name: Fetch the recorded history
+        run: |
+          if git ls-remote --exit-code --heads origin ci-health > /dev/null; then
+            git fetch --depth=1 origin ci-health
+            git show FETCH_HEAD:health.json > health.json
+          else
+            echo '{}' > health.json
+          fi
+      - name: Record this run
+        run: |
+          python -m ci.health update --health health.json --run-id "$GITHUB_RUN_ID" \
+            --results results/backend-junit/results-backend.json results/e2e-artifacts/results-e2e.json
+          python -m ci.health report --health health.json | tee -a "$GITHUB_STEP_SUMMARY"
+      - name: Propose quarantining tests that keep flaking
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        continue-on-error: true   # needs "Allow GitHub Actions to create pull requests" in the repository settings
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python -m ci.health quarantine --health health.json --file quarantine.yaml | tee quarantine-change.json
+          if [ -n "$(git status --porcelain quarantine.yaml)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            BRANCH="bot/quarantine-$GITHUB_RUN_ID"
+            git checkout -q -b "$BRANCH"
+            git add quarantine.yaml
+            git commit -qm "Update the test quarantine"
+            git push -q origin "$BRANCH"
+            gh pr create --base main --head "$BRANCH" --title "Update the test quarantine" \
+              --body "Proposed by the nightly health job: $(cat quarantine-change.json). Quarantined tests still run but no longer block merges. Review before merging."
+          fi
+      - name: Save the history
+        run: ci/publish_health.sh health.json
 
   # One stable name for branch protection: green when every job that had to run passed.
   # Skipped jobs (layers not selected) count as fine; failed or cancelled ones do not.

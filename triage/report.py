@@ -18,13 +18,15 @@ def render(results: list[dict]) -> str:
              "| Test | Category | Fix in | Confidence | Fix check |", "|---|---|---|---|---|"]
     for r in results:
         d = r["diagnosis"]
-        lines.append(f"| `{_cell(r['id'])}` | {d['category'] or 'unknown'} | {d['fix_target']} | {d['confidence']} | {r['verification']['status']} |")
+        lines.append(f"| `{_cell(r['id'])}` | {d['category'] or 'not analysed'} | {d['fix_target']} | {d['confidence']} | {r['verification']['status']} |")
     for r in results:
         d = r["diagnosis"]
         lines += ["", "---", f"### `{r['id']}`", "",
                   f"**{d['category'] or 'no diagnosis'}** ({SOURCE_NOTE.get(d['source'], d['source'])}). {d['root_cause']}", ""]
         if d["evidence"]:
-            lines += ["Evidence:", *[f"> {_cell(e)}" for e in d["evidence"]], ""]
+            # a code block, not a quote: quoted source lines such as "# comment" would render as headings
+            quoted = [e.replace("```", "'''").replace("\n", " ") for e in d["evidence"]]
+            lines += ["Evidence:", "", "```text", *quoted, "```", ""]
         if d["category"] == "intended_change":
             lines += ["The pull request changed this behaviour on purpose. Update the expected value in the test, "
                       "and confirm the new behaviour with whoever owns it.", ""]
