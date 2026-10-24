@@ -47,7 +47,7 @@ rules:
   - paths: ["tests/sync/*"]
     layers: [sync]
     why: the tests themselves
-  - paths: ["tests/triage/*", "triage/*", "quarantine.yaml"]
+  - paths: ["tests/triage/*", "triage/*"]
     layers: [unit]
     why: the failure-triage bot is covered by unit tests with a fake model
   - paths: ["tests/e2e/*"]
@@ -57,7 +57,7 @@ rules:
     layers: [unit]
     why: the selector is tested by unit tests
 
-  # Shared test plumbing and CI itself: any layer could change behaviour.
-  - paths: ["tests/conftest.py", "pytest.ini", "requirements*.txt", ".github/*"]
+  # Shared test plumbing, the quarantine list and CI itself: any layer could change behaviour.
+  - paths: ["conftest.py", "tests/conftest.py", "pytest.ini", "requirements*.txt", ".github/*", "quarantine.yaml"]
     layers: [unit, data, api, sync, e2e]
     why: shared setup, dependencies or the pipeline itself

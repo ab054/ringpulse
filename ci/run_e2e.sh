@@ -14,4 +14,5 @@ for _ in $(seq 1 30); do
 done
 curl -fs http://127.0.0.1:4723/status > /dev/null || { echo "Appium did not start"; cat artifacts/e2e/appium.log; exit 1; }
 
-E2E_REQUIRED=1 python -m pytest -m e2e -v --junitxml=artifacts/e2e/junit.xml
+E2E_REQUIRED=1 python -m pytest -m e2e -v --reruns 1 --reruns-delay 2 \
+  --junitxml=artifacts/e2e/junit.xml --results-json=artifacts/e2e/results-e2e.json

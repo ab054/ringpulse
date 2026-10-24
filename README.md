@@ -44,6 +44,8 @@ The emulator tests need an emulator, an Appium server and the debug APK: see [do
 
 CI runs on GitHub Actions and, on pull requests, picks only the test layers a change can affect: see [docs/ci.md](docs/ci.md).
 
+Failed tests are retried once in CI; a pass on retry is recorded as flaky, flaky tests can be quarantined, and a health report tracks first-try pass rate over time: see [docs/flaky-tests.md](docs/flaky-tests.md).
+
 When a test fails on a PR, a bot diagnoses it (test bug, app regression, intended change, flaky, environment), tries its suggested fix in a scratch copy and comments: see [docs/triage.md](docs/triage.md).
 
 See [docs/test-plan.md](docs/test-plan.md) for scope, risks and exit criteria, and [docs/known-issues.md](docs/known-issues.md) for open findings.
