@@ -85,7 +85,7 @@ def apply_quarantine(path: Path, add: list[str], release: list[str]) -> bool:
     if path.is_file():
         current = (yaml.safe_load(path.read_text()) or {}).get("quarantined", [])
     updated = sorted((set(current) | set(add)) - set(release))
-    if updated == sorted(current) and path.is_file():
+    if updated == sorted(current):          # nothing to add or release: no file, no diff, no pull request
         return False
     path.write_text(QUARANTINE_HEADER + yaml.safe_dump({"quarantined": updated}, sort_keys=True))
     return True
