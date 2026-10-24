@@ -47,6 +47,9 @@ rules:
   - paths: ["tests/sync/*"]
     layers: [sync]
     why: the tests themselves
+  - paths: ["tests/triage/*", "triage/*", "quarantine.yaml"]
+    layers: [unit]
+    why: the failure-triage bot is covered by unit tests with a fake model
   - paths: ["tests/e2e/*"]
     layers: [unit, api, e2e]
     why: page object and harness have unit and api tests next to the emulator ones
