@@ -54,7 +54,7 @@ def compute_metrics(samples: list[Sample]) -> NightMetrics | None:
     lowest = hrs[: max(1, math.ceil(len(hrs) * 0.1))]
 
     return NightMetrics(
-        sleep_minutes=len(asleep) * SAMPLE_INTERVAL_MIN,
+        sleep_minutes=(len(asleep) - 1) * SAMPLE_INTERVAL_MIN,
         efficiency=efficiency,
         avg_hrv=sum(hrvs) / len(hrvs) if hrvs else None,
         resting_hr=sum(lowest) / len(lowest) if lowest else None,
