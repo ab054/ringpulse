@@ -18,7 +18,7 @@ def render(results: list[dict]) -> str:
              "| Test | Category | Fix in | Confidence | Fix check |", "|---|---|---|---|---|"]
     for r in results:
         d = r["diagnosis"]
-        lines.append(f"| `{_cell(r['id'])}` | {d['category'] or 'unknown'} | {d['fix_target']} | {d['confidence']} | {r['verification']['status']} |")
+        lines.append(f"| `{_cell(r['id'])}` | {d['category'] or 'not analysed'} | {d['fix_target']} | {d['confidence']} | {r['verification']['status']} |")
     for r in results:
         d = r["diagnosis"]
         lines += ["", "---", f"### `{r['id']}`", "",

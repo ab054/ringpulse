@@ -119,6 +119,7 @@ jobs:
           target: google_apis
           arch: x86_64
           profile: pixel_6
+          ram-size: 4096M
           disable-animations: true
           script: ./ci/run_e2e.sh
 

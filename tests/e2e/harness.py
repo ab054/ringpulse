@@ -70,6 +70,12 @@ class ApiServer:
             return False
 
 
+def failed_in_test(node) -> bool:
+    """True if the test failed in setup (a fixture such as 'wait for the Today screen') or in its body.
+    Checking only the body missed every setup failure, which is exactly when the emulator itself is the suspect."""
+    return any(getattr(getattr(node, f"rep_{phase}", None), "failed", False) for phase in ("setup", "call"))
+
+
 def save_failure_artifacts(session, test_name: str, root: Path = ARTIFACTS_DIR) -> Path:
     """Screenshot, page source and logcat for a failed test. Never raises: capturing must not hide the failure."""
     folder = root / re.sub(r"[^A-Za-z0-9_.-]+", "_", test_name)

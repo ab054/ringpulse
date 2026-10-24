@@ -10,7 +10,7 @@ import os
 
 import httpx
 import pytest
-from harness import API_URL, APK_PATH, APPIUM_URL, ApiServer, save_failure_artifacts
+from harness import API_URL, APK_PATH, APPIUM_URL, ApiServer, save_failure_artifacts, failed_in_test
 
 from ring_sim import RingSimulator, load_night
 
@@ -73,8 +73,7 @@ def driver(request, appium_ready, api_server):
     session.implicitly_wait(0)  # explicit waits only, so a missing element fails fast and clearly
     yield session
 
-    failed = getattr(request.node, "rep_call", None) is not None and request.node.rep_call.failed
-    if failed:
+    if failed_in_test(request.node):
         save_failure_artifacts(session, request.node.name)
     session.quit()
 

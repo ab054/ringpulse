@@ -1,6 +1,8 @@
 """When an emulator test fails we need the evidence: screenshot, page source and logcat."""
 import pytest
-from harness import save_failure_artifacts
+from types import SimpleNamespace
+
+from harness import save_failure_artifacts, failed_in_test
 
 pytestmark = pytest.mark.unit
 
@@ -49,3 +51,14 @@ def test_folder_name_is_safe_for_parametrized_test_names(tmp_path):
 
     assert folder.name == "test_scores_good_night_"
     assert folder.parent == tmp_path
+
+
+def report(failed):
+    return SimpleNamespace(failed=failed)
+
+
+def test_a_failure_in_setup_counts_because_the_emulator_is_the_usual_suspect_there():
+    assert failed_in_test(SimpleNamespace(rep_setup=report(True)))                       # the Today screen never appeared
+    assert failed_in_test(SimpleNamespace(rep_setup=report(False), rep_call=report(True)))
+    assert not failed_in_test(SimpleNamespace(rep_setup=report(False), rep_call=report(False)))
+    assert not failed_in_test(SimpleNamespace())                                          # no report yet: do not capture
