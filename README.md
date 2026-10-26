@@ -21,7 +21,7 @@ Every test carries a layer marker (enforced at collection time), so CI and human
 |---|---|---|---|
 | `unit` | 132 | Scoring rules, packet parsing and checksums, properties such as "scores never leave 0–100" and "more sleep never lowers the sleep score", plus the CI and triage tooling itself | pytest, Hypothesis |
 | `data` | 10 | Four named nights ("golden nights") score within tolerance of expected values; a new readiness formula stays within 5 points of the old one | pytest |
-| `api` | 34 | The sync endpoint over HTTP: duplicates, bad checksums, conflicts, gaps, restart persistence | FastAPI TestClient |
+| `api` | 37 | The sync endpoint over HTTP: duplicates, bad checksums, conflicts, gaps, restart persistence | FastAPI TestClient |
 | `sync` | 30 | The ring simulator against the API with injected faults: loss, duplicates, reordering, corruption, disconnects. Whatever goes wrong, a clean retry converges to the same night | pytest, Hypothesis |
 | `e2e` | 6 | The real app on an Android emulator against the real API: scores, sync badge, partial sync, API outage | Appium, page objects |
 
