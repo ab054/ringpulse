@@ -16,7 +16,7 @@ from api.models import (
     SyncStatus,
 )
 from api.protocol import checksum
-from api.scoring import compute_metrics, readiness_score, sleep_score
+from api.scoring import READINESS_WEIGHTS, compute_metrics, readiness_score, sleep_score
 
 
 def packet_problem(packet: Packet, total_packets: int) -> str | None:
@@ -47,7 +47,18 @@ def sync_status(conn: sqlite3.Connection, night_id: str, total_packets: int) -> 
     )
 
 
+def readiness_formula() -> str:
+    """The configured readiness formula; an unknown value is a deployment error, not a request error."""
+    formula = os.environ.get("RINGPULSE_READINESS_FORMULA", "v1")
+    if formula not in READINESS_WEIGHTS:
+        raise ValueError(
+            f"RINGPULSE_READINESS_FORMULA={formula!r} is not one of {sorted(READINESS_WEIGHTS)}"
+        )
+    return formula
+
+
 def create_app(db_path: str | None = None) -> FastAPI:
+    readiness_formula()  # fail fast at startup instead of with a 500 on the first request
     store = Store(db_path or os.environ.get("RINGPULSE_DB", "ringpulse.db"))
     app = FastAPI(title="RingPulse sync API", version="0.1.0")
 
@@ -106,7 +117,7 @@ def create_app(db_path: str | None = None) -> FastAPI:
             ).fetchall()
 
         samples = [Sample.model_validate(raw) for row in rows for raw in json.loads(row["samples_json"])]
-        formula = os.environ.get("RINGPULSE_READINESS_FORMULA", "v1")
+        formula = readiness_formula()
         metrics = compute_metrics(samples)
         return Insights(
             **status.model_dump(),
