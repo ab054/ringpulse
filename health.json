@@ -119,6 +119,14 @@
    "id": "41037685367",
    "passed": 215,
    "total": 215
+  },
+  {
+   "at": "2026-10-31T09:43:51+00:00",
+   "failed": 0,
+   "flaky": 0,
+   "id": "41189566025",
+   "passed": 215,
+   "total": 215
   }
  ],
  "tests": {
@@ -138,9 +146,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/api/test_latest_night.py::test_ids_that_only_start_with_latest_still_go_to_the_id_route": {
    "history": [
@@ -158,9 +167,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/api/test_latest_night.py::test_latest_follows_the_most_recent_sync": {
    "history": [
@@ -178,9 +188,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/api/test_latest_night.py::test_latest_is_the_night_that_was_just_synced": {
    "history": [
@@ -198,9 +209,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/api/test_latest_night.py::test_latest_shows_a_partial_night_with_its_missing_packets": {
    "history": [
@@ -218,9 +230,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/api/test_latest_night.py::test_no_nights_yet_is_404": {
    "history": [
@@ -238,9 +251,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/api/test_latest_night.py::test_resyncing_an_older_night_makes_it_the_latest_again": {
    "history": [
@@ -258,9 +272,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/api/test_readiness_flag.py::test_known_formulas_start[v1]": {
    "history": [
@@ -269,9 +284,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/api/test_readiness_flag.py::test_known_formulas_start[v2]": {
    "history": [
@@ -280,9 +296,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/api/test_readiness_flag.py::test_unknown_formula_fails_at_startup": {
    "history": [
@@ -291,9 +308,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/api/test_smoke.py::test_clean_sync_completes_and_scores_are_in_range[good_night]": {
    "history": [
@@ -311,9 +329,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/api/test_smoke.py::test_clean_sync_completes_and_scores_are_in_range[missing_data]": {
    "history": [
@@ -331,9 +350,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/api/test_smoke.py::test_clean_sync_completes_and_scores_are_in_range[restless_night]": {
    "history": [
@@ -351,9 +371,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/api/test_smoke.py::test_clean_sync_completes_and_scores_are_in_range[short_night]": {
    "history": [
@@ -371,9 +392,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/api/test_smoke.py::test_health": {
    "history": [
@@ -391,9 +413,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/api/test_sync_endpoint.py::test_a_gap_makes_the_night_partial_and_names_the_missing_packets": {
    "history": [
@@ -411,9 +434,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/api/test_sync_endpoint.py::test_a_night_where_every_packet_was_rejected_has_no_scores": {
    "history": [
@@ -431,9 +455,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/api/test_sync_endpoint.py::test_a_packet_resent_with_different_content_is_rejected_and_the_first_copy_wins": {
    "history": [
@@ -451,9 +476,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/api/test_sync_endpoint.py::test_a_synced_night_survives_an_api_restart": {
    "history": [
@@ -471,9 +497,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/api/test_sync_endpoint.py::test_changing_the_packet_total_of_a_known_night_is_a_conflict": {
    "history": [
@@ -491,9 +518,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/api/test_sync_endpoint.py::test_clean_sync_reports_everything_accepted": {
    "history": [
@@ -511,9 +539,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/api/test_sync_endpoint.py::test_malformed_requests_are_422[empty-device]": {
    "history": [
@@ -531,9 +560,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/api/test_sync_endpoint.py::test_malformed_requests_are_422[missing-field]": {
    "history": [
@@ -551,9 +581,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/api/test_sync_endpoint.py::test_malformed_requests_are_422[wrong-type]": {
    "history": [
@@ -571,9 +602,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/api/test_sync_endpoint.py::test_malformed_requests_are_422[zero-total]": {
    "history": [
@@ -591,9 +623,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/api/test_sync_endpoint.py::test_missing_packets_can_arrive_in_a_later_sync": {
    "history": [
@@ -611,9 +644,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/api/test_sync_endpoint.py::test_nights_do_not_leak_into_each_other": {
    "history": [
@@ -631,9 +665,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/api/test_sync_endpoint.py::test_out_of_order_packets_rebuild_the_same_night": {
    "history": [
@@ -651,9 +686,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/api/test_sync_endpoint.py::test_packet_with_bad_checksum_is_rejected_and_not_stored": {
    "history": [
@@ -671,9 +707,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/api/test_sync_endpoint.py::test_packet_with_impossible_values_is_rejected_even_if_its_checksum_is_right": {
    "history": [
@@ -691,9 +728,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/api/test_sync_endpoint.py::test_same_night_id_from_another_device_is_a_conflict": {
    "history": [
@@ -711,9 +749,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/api/test_sync_endpoint.py::test_sequence_number_beyond_the_announced_total_is_rejected": {
    "history": [
@@ -731,9 +770,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/api/test_sync_endpoint.py::test_syncing_the_same_night_twice_changes_nothing": {
    "history": [
@@ -751,9 +791,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/api/test_sync_endpoint.py::test_unknown_night_is_404": {
    "history": [
@@ -771,9 +812,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/ci/test_flaky_handling.py::test_a_quarantined_test_is_released_after_a_long_clean_streak": {
    "history": [
@@ -791,9 +833,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/ci/test_flaky_handling.py::test_a_quarantined_test_that_passes_is_recorded_as_such": {
    "history": [
@@ -811,9 +854,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/ci/test_flaky_handling.py::test_a_run_with_only_a_flaky_test_passes_but_says_so": {
    "history": [
@@ -831,9 +875,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/ci/test_flaky_handling.py::test_a_test_is_quarantined_after_enough_flakes_but_a_broken_test_never_is": {
    "history": [
@@ -851,9 +896,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/ci/test_flaky_handling.py::test_a_test_that_was_flaky_but_now_fails_every_time_is_broken_not_quarantined": {
    "history": [
@@ -871,9 +917,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/ci/test_flaky_handling.py::test_apply_quarantine_edits_the_file_and_reports_whether_it_changed": {
    "history": [
@@ -891,9 +938,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/ci/test_flaky_handling.py::test_ci_retries_failures_and_records_results_in_both_test_jobs": {
    "history": [
@@ -911,9 +959,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/ci/test_flaky_handling.py::test_cli_update_then_quarantine": {
    "history": [
@@ -931,9 +980,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/ci/test_flaky_handling.py::test_history_counts_pass_flaky_and_fail_and_ignores_skips": {
    "history": [
@@ -951,9 +1001,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/ci/test_flaky_handling.py::test_history_is_a_rolling_window": {
    "history": [
@@ -971,9 +1022,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/ci/test_flaky_handling.py::test_main_runs_are_never_cancelled_and_a_cancelled_run_is_not_recorded_as_health": {
    "history": [
@@ -986,9 +1038,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/ci/test_flaky_handling.py::test_nothing_to_change_does_not_create_an_empty_quarantine_file": {
    "history": [
@@ -1001,9 +1054,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/ci/test_flaky_handling.py::test_quarantine_matching_rules": {
    "history": [
@@ -1021,9 +1075,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/ci/test_flaky_handling.py::test_quarantined_tests_still_run_but_do_not_fail_the_build": {
    "history": [
@@ -1041,9 +1096,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/ci/test_flaky_handling.py::test_report_lists_the_flakiest_tests_first": {
    "history": [
@@ -1061,9 +1117,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/ci/test_flaky_handling.py::test_rerun_separates_flaky_from_broken_from_fine": {
    "history": [
@@ -1081,9 +1138,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/ci/test_flaky_handling.py::test_run_summaries_and_stale_tests": {
    "history": [
@@ -1101,9 +1159,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/ci/test_flaky_handling.py::test_the_health_job_never_runs_on_pull_requests_and_only_it_can_write": {
    "history": [
@@ -1121,9 +1180,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/ci/test_flaky_handling.py::test_the_nightly_job_does_not_open_a_second_quarantine_pull_request": {
    "history": [
@@ -1136,9 +1196,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/ci/test_flaky_handling.py::test_the_triage_bot_reads_the_same_quarantine_file": {
    "history": [
@@ -1156,9 +1217,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/ci/test_flaky_handling.py::test_two_flakes_are_not_enough_and_already_quarantined_tests_are_not_added_again": {
    "history": [
@@ -1176,9 +1238,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/ci/test_select_tests.py::test_android_change_runs_only_the_emulator_layer": {
    "history": [
@@ -1196,9 +1259,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/ci/test_select_tests.py::test_cli_writes_outputs": {
    "history": [
@@ -1216,9 +1280,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/ci/test_select_tests.py::test_docs_only_change_runs_nothing": {
    "history": [
@@ -1236,9 +1301,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/ci/test_select_tests.py::test_every_rule_uses_known_layers_and_has_a_reason": {
    "history": [
@@ -1256,9 +1322,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/ci/test_select_tests.py::test_every_tracked_file_is_covered_by_the_map": {
    "history": [
@@ -1276,9 +1343,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/ci/test_select_tests.py::test_failed_or_empty_diff_runs_everything": {
    "history": [
@@ -1296,9 +1364,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/ci/test_select_tests.py::test_only_pull_requests_may_run_a_subset[push]": {
    "history": [
@@ -1316,9 +1385,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/ci/test_select_tests.py::test_only_pull_requests_may_run_a_subset[schedule]": {
    "history": [
@@ -1336,9 +1406,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/ci/test_select_tests.py::test_only_pull_requests_may_run_a_subset[workflow_dispatch]": {
    "history": [
@@ -1356,9 +1427,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/ci/test_select_tests.py::test_run_all_label_overrides_the_map": {
    "history": [
@@ -1376,9 +1448,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/ci/test_select_tests.py::test_scoring_change_runs_scoring_related_layers_including_the_emulator": {
    "history": [
@@ -1396,9 +1469,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/ci/test_select_tests.py::test_shared_test_plumbing_and_the_pipeline_run_everything": {
    "history": [
@@ -1416,9 +1490,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/ci/test_select_tests.py::test_summary_explains_each_file": {
    "history": [
@@ -1436,9 +1511,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/ci/test_select_tests.py::test_the_first_matching_rule_wins_so_specific_rules_can_narrow_general_ones": {
    "history": [
@@ -1456,9 +1532,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/ci/test_select_tests.py::test_union_across_files": {
    "history": [
@@ -1476,9 +1553,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/ci/test_select_tests.py::test_unknown_file_runs_everything_and_says_which_file": {
    "history": [
@@ -1496,9 +1574,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/ci/test_workflow_hygiene.py::test_every_action_is_pinned_to_a_major_version": {
    "history": [
@@ -1509,9 +1588,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/ci/test_workflow_hygiene.py::test_runners_are_pinned_not_latest": {
    "history": [
@@ -1522,9 +1602,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/data/test_golden_nights.py::test_new_readiness_formula_stays_within_5_points_of_the_old_one[good_night]": {
    "history": [
@@ -1542,9 +1623,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/data/test_golden_nights.py::test_new_readiness_formula_stays_within_5_points_of_the_old_one[missing_data]": {
    "history": [
@@ -1562,9 +1644,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/data/test_golden_nights.py::test_new_readiness_formula_stays_within_5_points_of_the_old_one[restless_night]": {
    "history": [
@@ -1582,9 +1665,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/data/test_golden_nights.py::test_new_readiness_formula_stays_within_5_points_of_the_old_one[short_night]": {
    "history": [
@@ -1602,9 +1686,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/data/test_golden_nights.py::test_night_with_recording_gaps_and_hrv_dropout_still_gets_scores": {
    "history": [
@@ -1622,9 +1707,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/data/test_golden_nights.py::test_nights_rank_the_way_a_person_would_expect": {
    "history": [
@@ -1642,9 +1728,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/data/test_golden_nights.py::test_scores_match_the_golden_night_within_tolerance[good_night]": {
    "history": [
@@ -1662,9 +1749,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/data/test_golden_nights.py::test_scores_match_the_golden_night_within_tolerance[missing_data]": {
    "history": [
@@ -1682,9 +1770,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/data/test_golden_nights.py::test_scores_match_the_golden_night_within_tolerance[restless_night]": {
    "history": [
@@ -1702,9 +1791,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/data/test_golden_nights.py::test_scores_match_the_golden_night_within_tolerance[short_night]": {
    "history": [
@@ -1722,9 +1812,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/e2e/test_device_settle.py::test_a_dead_session_is_noted_not_raised": {
    "history": [
@@ -1742,9 +1833,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/e2e/test_device_settle.py::test_a_healthy_device_needs_nothing": {
    "history": [
@@ -1762,9 +1854,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/e2e/test_device_settle.py::test_a_not_responding_dialog_is_dismissed_with_wait_and_the_app_is_brought_back": {
    "history": [
@@ -1782,9 +1875,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/e2e/test_device_settle.py::test_the_dialog_is_ignored_when_there_is_no_wait_button": {
    "history": [
@@ -1802,9 +1896,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/e2e/test_device_settle.py::test_when_the_screen_never_appears_it_gives_up_with_a_note_and_does_not_raise": {
    "history": [
@@ -1822,9 +1917,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/e2e/test_failure_artifacts.py::test_a_dead_session_does_not_raise_and_leaves_notes_instead": {
    "history": [
@@ -1842,9 +1938,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/e2e/test_failure_artifacts.py::test_a_failure_in_setup_counts_because_the_emulator_is_the_usual_suspect_there": {
    "history": [
@@ -1862,9 +1959,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/e2e/test_failure_artifacts.py::test_folder_name_is_safe_for_parametrized_test_names": {
    "history": [
@@ -1882,9 +1980,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/e2e/test_failure_artifacts.py::test_saves_screenshot_page_source_and_logcat": {
    "history": [
@@ -1902,9 +2001,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/e2e/test_live_server.py::test_every_test_starts_with_an_empty_api": {
    "history": [
@@ -1922,9 +2022,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/e2e/test_live_server.py::test_ring_syncs_to_a_live_api_over_http": {
    "history": [
@@ -1942,9 +2043,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/e2e/test_live_server.py::test_stopping_the_server_makes_it_unreachable_and_stop_is_repeatable": {
    "history": [
@@ -1962,9 +2064,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/e2e/test_page_object.py::test_optional_elements_are_none_when_absent_and_text_when_present": {
    "history": [
@@ -1982,9 +2085,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/e2e/test_page_object.py::test_reads_values_by_accessibility_id": {
    "history": [
@@ -2002,9 +2106,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/e2e/test_page_object.py::test_tap_sync_now_clicks_the_button": {
    "history": [
@@ -2022,9 +2127,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/e2e/test_page_object.py::test_wait_for_badge_failure_says_what_was_on_screen": {
    "history": [
@@ -2042,9 +2148,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/e2e/test_page_object.py::test_wait_for_badge_returns_once_the_badge_changes": {
    "history": [
@@ -2062,9 +2169,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/e2e/test_page_object.py::test_wait_until_loaded_waits_for_the_title_and_for_syncing_to_end": {
    "history": [
@@ -2082,9 +2190,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/e2e/test_today_screen.py::test_before_any_sync_the_screen_says_there_is_no_night_yet": {
    "history": [
@@ -2100,9 +2209,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/e2e/test_today_screen.py::test_lost_packets_show_a_partial_sync_badge": {
    "history": [
@@ -2118,9 +2228,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/e2e/test_today_screen.py::test_missing_packets_arriving_later_complete_the_night": {
    "history": [
@@ -2136,9 +2247,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/e2e/test_today_screen.py::test_sync_now_shows_the_scores_of_the_synced_night[good_night]": {
    "history": [
@@ -2154,9 +2266,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/e2e/test_today_screen.py::test_sync_now_shows_the_scores_of_the_synced_night[restless_night]": {
    "history": [
@@ -2172,9 +2285,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/e2e/test_today_screen.py::test_when_the_api_goes_away_the_app_says_so_and_keeps_the_last_scores": {
    "history": [
@@ -2190,9 +2304,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/sync/test_sync_faults.py::test_corrupted_packet_is_rejected_then_accepted_when_resent_clean": {
    "history": [
@@ -2210,9 +2325,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/sync/test_sync_faults.py::test_disconnect_mid_sync_then_reconnect_completes_the_night": {
    "history": [
@@ -2230,9 +2346,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/sync/test_sync_faults.py::test_duplicated_packets_are_counted_once": {
    "history": [
@@ -2250,9 +2367,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/sync/test_sync_faults.py::test_full_retransmit_after_a_loss_fills_the_gap_and_ignores_the_rest": {
    "history": [
@@ -2270,9 +2388,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/sync/test_sync_faults.py::test_partial_sync_never_claims_more_sleep_than_the_full_night": {
    "history": [
@@ -2290,9 +2409,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/sync/test_sync_faults.py::test_random_packet_loss_is_reported_exactly_and_never_crashes[0]": {
    "history": [
@@ -2310,9 +2430,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/sync/test_sync_faults.py::test_random_packet_loss_is_reported_exactly_and_never_crashes[1]": {
    "history": [
@@ -2330,9 +2451,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/sync/test_sync_faults.py::test_random_packet_loss_is_reported_exactly_and_never_crashes[2]": {
    "history": [
@@ -2350,9 +2472,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/sync/test_sync_faults.py::test_random_packet_loss_is_reported_exactly_and_never_crashes[3]": {
    "history": [
@@ -2370,9 +2493,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/sync/test_sync_faults.py::test_random_packet_loss_is_reported_exactly_and_never_crashes[4]": {
    "history": [
@@ -2390,9 +2514,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/sync/test_sync_faults.py::test_whatever_goes_wrong_a_clean_retry_converges_to_the_same_night[good_night-0]": {
    "history": [
@@ -2410,9 +2535,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/sync/test_sync_faults.py::test_whatever_goes_wrong_a_clean_retry_converges_to_the_same_night[good_night-1]": {
    "history": [
@@ -2430,9 +2556,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/sync/test_sync_faults.py::test_whatever_goes_wrong_a_clean_retry_converges_to_the_same_night[good_night-2]": {
    "history": [
@@ -2450,9 +2577,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/sync/test_sync_faults.py::test_whatever_goes_wrong_a_clean_retry_converges_to_the_same_night[good_night-3]": {
    "history": [
@@ -2470,9 +2598,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/sync/test_sync_faults.py::test_whatever_goes_wrong_a_clean_retry_converges_to_the_same_night[good_night-4]": {
    "history": [
@@ -2490,9 +2619,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/sync/test_sync_faults.py::test_whatever_goes_wrong_a_clean_retry_converges_to_the_same_night[missing_data-0]": {
    "history": [
@@ -2510,9 +2640,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/sync/test_sync_faults.py::test_whatever_goes_wrong_a_clean_retry_converges_to_the_same_night[missing_data-1]": {
    "history": [
@@ -2530,9 +2661,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/sync/test_sync_faults.py::test_whatever_goes_wrong_a_clean_retry_converges_to_the_same_night[missing_data-2]": {
    "history": [
@@ -2550,9 +2682,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/sync/test_sync_faults.py::test_whatever_goes_wrong_a_clean_retry_converges_to_the_same_night[missing_data-3]": {
    "history": [
@@ -2570,9 +2703,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/sync/test_sync_faults.py::test_whatever_goes_wrong_a_clean_retry_converges_to_the_same_night[missing_data-4]": {
    "history": [
@@ -2590,9 +2724,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/sync/test_sync_faults.py::test_whatever_goes_wrong_a_clean_retry_converges_to_the_same_night[restless_night-0]": {
    "history": [
@@ -2610,9 +2745,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/sync/test_sync_faults.py::test_whatever_goes_wrong_a_clean_retry_converges_to_the_same_night[restless_night-1]": {
    "history": [
@@ -2630,9 +2766,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/sync/test_sync_faults.py::test_whatever_goes_wrong_a_clean_retry_converges_to_the_same_night[restless_night-2]": {
    "history": [
@@ -2650,9 +2787,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/sync/test_sync_faults.py::test_whatever_goes_wrong_a_clean_retry_converges_to_the_same_night[restless_night-3]": {
    "history": [
@@ -2670,9 +2808,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/sync/test_sync_faults.py::test_whatever_goes_wrong_a_clean_retry_converges_to_the_same_night[restless_night-4]": {
    "history": [
@@ -2690,9 +2829,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/sync/test_sync_faults.py::test_whatever_goes_wrong_a_clean_retry_converges_to_the_same_night[short_night-0]": {
    "history": [
@@ -2710,9 +2850,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/sync/test_sync_faults.py::test_whatever_goes_wrong_a_clean_retry_converges_to_the_same_night[short_night-1]": {
    "history": [
@@ -2730,9 +2871,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/sync/test_sync_faults.py::test_whatever_goes_wrong_a_clean_retry_converges_to_the_same_night[short_night-2]": {
    "history": [
@@ -2750,9 +2892,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/sync/test_sync_faults.py::test_whatever_goes_wrong_a_clean_retry_converges_to_the_same_night[short_night-3]": {
    "history": [
@@ -2770,9 +2913,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/sync/test_sync_faults.py::test_whatever_goes_wrong_a_clean_retry_converges_to_the_same_night[short_night-4]": {
    "history": [
@@ -2790,9 +2934,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/triage/test_triage_bot.py::test_a_crash_inside_the_bot_does_not_change_the_exit_code": {
    "history": [
@@ -2810,9 +2955,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/triage/test_triage_bot.py::test_a_good_patch_is_verified_in_a_scratch_copy_and_the_original_is_untouched": {
    "history": [
@@ -2830,9 +2976,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/triage/test_triage_bot.py::test_a_patch_that_does_not_apply_is_rejected": {
    "history": [
@@ -2850,9 +2997,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/triage/test_triage_bot.py::test_a_patch_that_does_not_fix_it_is_reported_as_such": {
    "history": [
@@ -2870,9 +3018,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/triage/test_triage_bot.py::test_a_plain_assertion_failure_goes_to_the_model": {
    "history": [
@@ -2890,9 +3039,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/triage/test_triage_bot.py::test_answer_wrapped_in_text_or_fences_is_still_parsed": {
    "history": [
@@ -2910,9 +3060,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/triage/test_triage_bot.py::test_bundle_attaches_emulator_evidence": {
    "history": [
@@ -2930,9 +3081,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/triage/test_triage_bot.py::test_bundle_collects_only_failures_with_test_source_and_node_id": {
    "history": [
@@ -2950,9 +3102,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/triage/test_triage_bot.py::test_bundle_handles_errors_classes_and_missing_files": {
    "history": [
@@ -2970,9 +3123,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/triage/test_triage_bot.py::test_credentials_are_scrubbed_before_text_leaves": {
    "history": [
@@ -2990,9 +3144,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/triage/test_triage_bot.py::test_deleting_files_or_empty_patches_are_rejected": {
    "history": [
@@ -3010,9 +3165,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/triage/test_triage_bot.py::test_end_to_end_with_a_fake_model_writes_results_and_a_comment": {
    "history": [
@@ -3030,9 +3186,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/triage/test_triage_bot.py::test_evidence_is_code_so_quoted_comments_and_markdown_stay_literal": {
    "history": [
@@ -3050,9 +3207,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/triage/test_triage_bot.py::test_failures_over_the_limit_are_not_sent": {
    "history": [
@@ -3070,9 +3228,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/triage/test_triage_bot.py::test_invalid_answers_are_rejected[change0]": {
    "history": [
@@ -3090,9 +3249,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/triage/test_triage_bot.py::test_invalid_answers_are_rejected[change1]": {
    "history": [
@@ -3110,9 +3270,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/triage/test_triage_bot.py::test_invalid_answers_are_rejected[change2]": {
    "history": [
@@ -3130,9 +3291,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/triage/test_triage_bot.py::test_invalid_answers_are_rejected[change3]": {
    "history": [
@@ -3150,9 +3312,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/triage/test_triage_bot.py::test_invalid_answers_are_rejected[change4]": {
    "history": [
@@ -3170,9 +3333,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/triage/test_triage_bot.py::test_invalid_answers_are_rejected[change5]": {
    "history": [
@@ -3190,9 +3354,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/triage/test_triage_bot.py::test_known_patterns_never_reach_the_model": {
    "history": [
@@ -3210,9 +3375,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/triage/test_triage_bot.py::test_missing_field_is_rejected": {
    "history": [
@@ -3230,9 +3396,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/triage/test_triage_bot.py::test_missing_infrastructure_is_labelled_environment[No Appium server at http://127.0.0.1:4723]": {
    "history": [
@@ -3250,9 +3417,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/triage/test_triage_bot.py::test_missing_infrastructure_is_labelled_environment[httpx.ConnectError: [Errno 61] Connection refused]": {
    "history": [
@@ -3270,9 +3438,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/triage/test_triage_bot.py::test_no_patch_and_emulator_tests_are_not_attempted": {
    "history": [
@@ -3290,9 +3459,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/triage/test_triage_bot.py::test_one_invalid_answer_is_retried_once": {
    "history": [
@@ -3310,9 +3480,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/triage/test_triage_bot.py::test_patch_rules[app-../outside.py-True]": {
    "history": [
@@ -3330,9 +3501,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/triage/test_triage_bot.py::test_patch_rules[app-.github/workflows/ci.yml-True]": {
    "history": [
@@ -3350,9 +3522,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/triage/test_triage_bot.py::test_patch_rules[app-/etc/passwd-True]": {
    "history": [
@@ -3370,9 +3543,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/triage/test_triage_bot.py::test_patch_rules[app-api/scoring.py-False]": {
    "history": [
@@ -3390,9 +3564,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/triage/test_triage_bot.py::test_patch_rules[app-requirements-dev.txt-True]": {
    "history": [
@@ -3410,9 +3585,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/triage/test_triage_bot.py::test_patch_rules[app-tests/api/test_x.py-True]": {
    "history": [
@@ -3430,9 +3606,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/triage/test_triage_bot.py::test_patch_rules[app-triage/prompt.md-True]": {
    "history": [
@@ -3450,9 +3627,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/triage/test_triage_bot.py::test_patch_rules[test-api/scoring.py-True]": {
    "history": [
@@ -3470,9 +3648,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/triage/test_triage_bot.py::test_patch_rules[test-ci/select_tests.py-True]": {
    "history": [
@@ -3490,9 +3669,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/triage/test_triage_bot.py::test_patch_rules[test-fixtures/nights/good_night.json-False]": {
    "history": [
@@ -3510,9 +3690,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/triage/test_triage_bot.py::test_patch_rules[test-tests/api/test_x.py-False]": {
    "history": [
@@ -3530,9 +3711,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/triage/test_triage_bot.py::test_persistent_garbage_or_api_errors_become_a_clear_non_answer_not_a_crash": {
    "history": [
@@ -3550,9 +3732,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/triage/test_triage_bot.py::test_pr_text_is_fenced_as_data_and_the_diff_is_capped": {
    "history": [
@@ -3570,9 +3753,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/triage/test_triage_bot.py::test_quarantine_file_is_read": {
    "history": [
@@ -3590,9 +3774,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/triage/test_triage_bot.py::test_quarantined_test_is_labelled_flaky_without_the_model": {
    "history": [
@@ -3610,9 +3795,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/triage/test_triage_bot.py::test_report_explains_intended_changes": {
    "history": [
@@ -3630,9 +3816,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/triage/test_triage_bot.py::test_valid_answer_is_accepted_and_the_prompt_and_model_are_used": {
    "history": [
@@ -3650,9 +3837,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/triage/test_triage_bot.py::test_without_an_api_key_the_report_says_so": {
    "history": [
@@ -3670,9 +3858,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/unit/test_protocol.py::test_bad_checksum_is_rejected": {
    "history": [
@@ -3690,9 +3879,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/unit/test_protocol.py::test_checksum_ignores_key_order_but_not_values": {
    "history": [
@@ -3710,9 +3900,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/unit/test_protocol.py::test_empty_packet_is_rejected": {
    "history": [
@@ -3730,9 +3921,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/unit/test_protocol.py::test_night_is_split_into_numbered_packets[good_night-8]": {
    "history": [
@@ -3750,9 +3942,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/unit/test_protocol.py::test_night_is_split_into_numbered_packets[missing_data-7]": {
    "history": [
@@ -3770,9 +3963,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/unit/test_protocol.py::test_night_is_split_into_numbered_packets[short_night-5]": {
    "history": [
@@ -3790,9 +3984,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/unit/test_protocol.py::test_out_of_range_sample_values_are_rejected_even_with_a_correct_checksum[bad0]": {
    "history": [
@@ -3810,9 +4005,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/unit/test_protocol.py::test_out_of_range_sample_values_are_rejected_even_with_a_correct_checksum[bad1]": {
    "history": [
@@ -3830,9 +4026,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/unit/test_protocol.py::test_out_of_range_sample_values_are_rejected_even_with_a_correct_checksum[bad2]": {
    "history": [
@@ -3850,9 +4047,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/unit/test_protocol.py::test_out_of_range_sample_values_are_rejected_even_with_a_correct_checksum[bad3]": {
    "history": [
@@ -3870,9 +4068,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/unit/test_protocol.py::test_packets_reassemble_into_the_original_samples": {
    "history": [
@@ -3890,9 +4089,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/unit/test_protocol.py::test_range_is_checked_before_checksum": {
    "history": [
@@ -3910,9 +4110,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/unit/test_protocol.py::test_ring_and_api_compute_the_same_checksum_for_every_packet[good_night]": {
    "history": [
@@ -3930,9 +4131,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/unit/test_protocol.py::test_ring_and_api_compute_the_same_checksum_for_every_packet[missing_data]": {
    "history": [
@@ -3950,9 +4152,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/unit/test_protocol.py::test_ring_and_api_compute_the_same_checksum_for_every_packet[restless_night]": {
    "history": [
@@ -3970,9 +4173,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/unit/test_protocol.py::test_ring_and_api_compute_the_same_checksum_for_every_packet[short_night]": {
    "history": [
@@ -3990,9 +4194,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/unit/test_protocol.py::test_sequence_number_must_be_inside_the_announced_range": {
    "history": [
@@ -4010,9 +4215,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/unit/test_protocol.py::test_single_flipped_checksum_bit_is_rejected": {
    "history": [
@@ -4030,9 +4236,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/unit/test_protocol.py::test_valid_packet_has_no_problem": {
    "history": [
@@ -4050,9 +4257,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/unit/test_scoring.py::test_asleep_threshold_is_exclusive_and_unknown_movement_is_not_sleep[0.29-5]": {
    "history": [
@@ -4070,9 +4278,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/unit/test_scoring.py::test_asleep_threshold_is_exclusive_and_unknown_movement_is_not_sleep[0.3-0]": {
    "history": [
@@ -4090,9 +4299,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/unit/test_scoring.py::test_asleep_threshold_is_exclusive_and_unknown_movement_is_not_sleep[None-0]": {
    "history": [
@@ -4110,9 +4320,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/unit/test_scoring.py::test_full_night_at_baseline": {
    "history": [
@@ -4130,9 +4341,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/unit/test_scoring.py::test_half_night_halves_the_duration_component": {
    "history": [
@@ -4150,9 +4362,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/unit/test_scoring.py::test_higher_hrv_never_lowers_readiness": {
    "history": [
@@ -4170,9 +4383,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/unit/test_scoring.py::test_higher_resting_hr_never_raises_readiness": {
    "history": [
@@ -4190,9 +4404,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/unit/test_scoring.py::test_missing_heart_rate_drops_that_component_and_renormalises": {
    "history": [
@@ -4210,9 +4425,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/unit/test_scoring.py::test_missing_hrv_drops_that_component_and_renormalises": {
    "history": [
@@ -4230,9 +4446,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/unit/test_scoring.py::test_more_sleep_never_lowers_sleep_score": {
    "history": [
@@ -4250,9 +4467,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/unit/test_scoring.py::test_no_samples_gives_no_metrics": {
    "history": [
@@ -4270,9 +4488,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/unit/test_scoring.py::test_resting_hr_is_the_mean_of_the_lowest_tenth": {
    "history": [
@@ -4290,9 +4509,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/unit/test_scoring.py::test_restless_samples_lower_efficiency_and_duration": {
    "history": [
@@ -4310,9 +4530,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/unit/test_scoring.py::test_scores_never_leave_0_to_100_for_any_input": {
    "history": [
@@ -4330,9 +4551,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   },
   "tests/unit/test_scoring.py::test_v2_weights_hrv_more_heavily": {
    "history": [
@@ -4350,9 +4572,10 @@
     "pass",
     "pass",
     "pass",
+    "pass",
     "pass"
    ],
-   "last_seen": "2026-10-30T10:07:19+00:00"
+   "last_seen": "2026-10-31T09:43:51+00:00"
   }
  }
 }
