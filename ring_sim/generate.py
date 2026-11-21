@@ -45,11 +45,15 @@ EXPECTED: dict[str, dict[str, int]] = {
 }
 
 
-def build_night(name: str) -> dict[str, Any]:
-    p = PROFILES[name]
-    rng = random.Random(name)
+def synth_samples(p: dict[str, Any], rng: random.Random) -> list[dict[str, Any]]:
+    """One night of samples from a profile. Used for the fixture nights and for the AI eval set.
+
+    Optional profile keys: temp (body temperature level, default 36.4).
+    """
     count = int(p["hours"] * 60 / INTERVAL_MIN)
-    dropped = {i for start, length in p["gaps"] for i in range(start, start + length)}
+    dropped = {i for start, length in p.get("gaps", []) for i in range(start, start + length)}
+    dropout = p.get("hrv_dropout")
+    temp_level = p.get("temp", 36.4)
     samples = []
     for i in range(count):
         if i in dropped:
@@ -59,8 +63,8 @@ def build_night(name: str) -> dict[str, Any]:
         hrv = p["hrv"] + 6 * math.sin(math.pi * phase) + rng.gauss(0, 3)
         restless = rng.random() < p["restless"]
         movement = 0.5 + rng.random() * 0.5 if restless else rng.random() * 0.2
-        temp = 36.4 - 0.4 * math.sin(math.pi * phase) + rng.gauss(0, 0.05)
-        in_dropout = p["hrv_dropout"] and p["hrv_dropout"][0] <= i < sum(p["hrv_dropout"])
+        temp = temp_level - 0.4 * math.sin(math.pi * phase) + rng.gauss(0, 0.05)
+        in_dropout = dropout and dropout[0] <= i < sum(dropout)
         samples.append({
             "t": i * INTERVAL_MIN,
             "hr": round(hr, 1),
@@ -68,6 +72,12 @@ def build_night(name: str) -> dict[str, Any]:
             "movement": round(movement, 2),
             "temp": round(temp, 2),
         })
+    return samples
+
+
+def build_night(name: str) -> dict[str, Any]:
+    p = PROFILES[name]
+    samples = synth_samples(p, random.Random(name))
     return {
         "name": name,
         "description": p["description"],

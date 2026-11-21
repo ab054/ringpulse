@@ -17,6 +17,12 @@ rules:
   - paths: ["api/protocol.py", "api/models.py"]
     layers: [unit, api, sync, e2e]
     why: packet validation and the sync contract
+  - paths: ["api/alerts.py", "api/alert_rules.yaml", "api/worker.py"]
+    layers: [unit, api]
+    why: alert rules and the processing queue; the app does not show alerts yet
+  - paths: ["ai/*"]
+    layers: [unit, data, api]
+    why: the AI layer and its model versions; data holds the model gate
   - paths: ["api/*"]
     layers: [unit, data, api, sync, e2e]
     why: any other API change can reach every layer

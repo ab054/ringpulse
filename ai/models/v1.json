@@ -1,0 +1,15 @@
+{
+  "description": "Production model. Missing HRV counts as no change.",
+  "bias": -4.0,
+  "threshold": 0.5,
+  "weights": {
+    "rhr_delta": 0.6,
+    "hrv_drop": 8.0,
+    "temp_delta": 10.0,
+    "restless_share": -2.0
+  },
+  "impute": {
+    "hrv_drop": 0.0,
+    "temp_delta": 0.0
+  }
+}

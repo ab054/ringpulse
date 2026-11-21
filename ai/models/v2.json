@@ -1,0 +1,15 @@
+{
+  "description": "Candidate: more sensitive, leans on HRV. Missing HRV is filled with the healthy-population average (-0.2), which makes a night with a dead HRV sensor look healthy.",
+  "bias": -3.4,
+  "threshold": 0.5,
+  "weights": {
+    "rhr_delta": 0.6,
+    "hrv_drop": 14.0,
+    "temp_delta": 10.0,
+    "restless_share": -4.0
+  },
+  "impute": {
+    "hrv_drop": -0.2,
+    "temp_delta": 0.0
+  }
+}

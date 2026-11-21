@@ -15,6 +15,36 @@ CREATE TABLE IF NOT EXISTS packets (
     samples_json TEXT NOT NULL,
     PRIMARY KEY (night_id, seq)
 );
+CREATE TABLE IF NOT EXISTS devices (
+    device_id    TEXT PRIMARY KEY,
+    last_seen_at TEXT NOT NULL
+);
+-- Work queue between ingest and the AI layer: one job per night, written when the night is complete.
+CREATE TABLE IF NOT EXISTS jobs (
+    night_id   TEXT PRIMARY KEY REFERENCES nights(night_id),
+    status     TEXT NOT NULL,  -- pending | done | failed
+    created_at TEXT NOT NULL,
+    error      TEXT
+);
+CREATE TABLE IF NOT EXISTS analyses (
+    night_id      TEXT PRIMARY KEY REFERENCES nights(night_id),
+    model_version TEXT NOT NULL,
+    label         TEXT,
+    confidence    REAL,
+    readiness     INTEGER,
+    analysed_at   TEXT NOT NULL
+);
+CREATE TABLE IF NOT EXISTS alerts (
+    id           INTEGER PRIMARY KEY AUTOINCREMENT,
+    device_id    TEXT NOT NULL,
+    rule_id      TEXT NOT NULL,
+    severity     TEXT NOT NULL,
+    message      TEXT NOT NULL,
+    night_id     TEXT,
+    created_at   TEXT NOT NULL,
+    last_seen_at TEXT NOT NULL,
+    occurrences  INTEGER NOT NULL
+);
 """
 
 
