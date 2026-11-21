@@ -1,0 +1,15 @@
+{
+  "description": "v2 with the imputation fixed: missing HRV counts as no change, as in v1.",
+  "bias": -3.4,
+  "threshold": 0.5,
+  "weights": {
+    "rhr_delta": 0.6,
+    "hrv_drop": 14.0,
+    "temp_delta": 10.0,
+    "restless_share": -4.0
+  },
+  "impute": {
+    "hrv_drop": 0.0,
+    "temp_delta": 0.0
+  }
+}

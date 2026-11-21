@@ -5,9 +5,11 @@ A small smart-ring system and the test system built around it. The product is a 
 ```mermaid
 flowchart LR
     ring["ring_sim<br/>simulated ring"] -- "numbered, checksummed packets<br/>(can lose, duplicate, reorder, corrupt)" --> api["api<br/>FastAPI + SQLite<br/>rebuilds the night, scores it"]
+    api -- "queue: complete nights" --> ai["AI layer + alert rules<br/>versioned model, eval gate,<br/>dedup, GET /alerts"]
     api -- "GET /nights/latest" --> app["app<br/>Android, Compose<br/>Today screen"]
     tests(["pytest · Hypothesis · Appium"]) -.-> ring
     tests -.-> api
+    tests -.-> ai
     tests -.-> app
 ```
 
@@ -19,13 +21,15 @@ Every test carries a layer marker (enforced at collection time), so CI and human
 
 | Layer | Tests | What it checks | Tools |
 |---|---|---|---|
-| `unit` | 132 | Scoring rules, packet parsing and checksums, properties such as "scores never leave 0–100" and "more sleep never lowers the sleep score", plus the CI and triage tooling itself | pytest, Hypothesis |
-| `data` | 10 | Four named nights ("golden nights") score within tolerance of expected values; a new readiness formula stays within 5 points of the old one | pytest |
-| `api` | 37 | The sync endpoint over HTTP: duplicates, bad checksums, conflicts, gaps, restart persistence | FastAPI TestClient |
+| `unit` | 158 | Scoring rules, packet parsing and checksums, the detector's code and alert-rule tables, properties such as "scores never leave 0–100" and "more sleep never lowers the sleep score", plus the CI and triage tooling itself | pytest, Hypothesis |
+| `data` | 16 | Four named nights ("golden nights") score within tolerance of expected values; a new readiness formula stays within 5 points of the old one; a new model version is gated per slice on a labelled eval set | pytest |
+| `api` | 45 | The sync endpoint over HTTP: duplicates, bad checksums, conflicts, gaps, restart persistence; the queue → AI → alerts pipeline, including the real background worker waited on by condition | FastAPI TestClient |
 | `sync` | 30 | The ring simulator against the API with injected faults: loss, duplicates, reordering, corruption, disconnects. Whatever goes wrong, a clean retry converges to the same night | pytest, Hypothesis |
 | `e2e` | 6 | The real app on an Android emulator against the real API: scores, sync badge, partial sync, API outage | Appium, page objects |
 
 Why the sync layer matters: the protocol has sequence numbers and checksums on purpose, so gap detection and de-duplication are testable in miniature (the same ideas as message-stream testing in larger systems). Two other deliberate seams: a readiness-formula **feature flag** (compare old vs new within tolerance, the way an algorithm change would be validated) and a fixed set of **golden nights** shared by every layer.
+
+The AI layer and alerts (model versions, eval set, the gate that blocks a model better on average but worse on one slice) are in [docs/ai-and-alerts.md](docs/ai-and-alerts.md).
 
 [docs/test-plan.md](docs/test-plan.md) has scope, twelve risks mapped to layers, environments, and entry/exit criteria. Open findings are in [docs/known-issues.md](docs/known-issues.md).
 
@@ -86,18 +90,20 @@ docker compose up --build                     # the API on :8000
 curl localhost:8000/health
 
 python -m ci.select_tests --files api/scoring.py README.md    # what would CI run for this change?
+python -m ai.evaluate --candidate v2 --baseline v1            # model gate: may v2 replace v1? (no)
 ```
 
 The emulator tests need an emulator, an Appium server and the debug APK: [docs/e2e-tests.md](docs/e2e-tests.md). The app is described in [docs/android-app.md](docs/android-app.md).
 
-Readiness has a feature flag: `RINGPULSE_READINESS_FORMULA=v2` switches to the new weights.
+Readiness has a feature flag: `RINGPULSE_READINESS_FORMULA=v2` switches to the new weights. `RINGPULSE_MODEL` picks the detector version (default `v1`); `RINGPULSE_WORKER=0` turns the background worker off.
 
 ## Repository map
 
 | Path | What it is |
 |---|---|
 | `ring_sim/` | The simulated ring: generates a night, sends packets, injects faults |
-| `api/` | FastAPI + SQLite: packet validation, night reconstruction, scoring |
+| `api/` | FastAPI + SQLite: packet validation, night reconstruction, scoring, processing queue, alert rules |
+| `ai/` | The AI layer: features, detector, versioned model weights, labelled eval set and model gate |
 | `app/` | Android app (Kotlin, Compose): scores, sync badge, Sync now button |
 | `fixtures/nights/` | Named nights shared by every layer: `good_night`, `short_night`, `restless_night`, `missing_data` |
 | `tests/` | One folder per layer, plus tests for the CI and triage tooling |

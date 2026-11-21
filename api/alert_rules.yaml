@@ -1,0 +1,25 @@
+# Alert rules: what turns an analysed night (or a silent device) into an alert for the user.
+# Read by api/alerts.py. Every threshold here has a boundary test in tests/unit/test_alert_rules.py,
+# so a change to a number shows up as a failing test, not as a surprise in production.
+
+# The same rule for the same device fires at most once per window; repeats bump a counter instead.
+dedup_window_hours: 24
+
+rules:
+  - id: illness_signs
+    when: detection            # the AI layer flagged the night
+    min_confidence: 0.8        # below this the detection is kept, but nobody is woken up
+    severity: high
+    message: Resting heart rate, HRV and temperature are off your baseline. Take it easy today.
+
+  - id: low_readiness
+    when: readiness_below
+    threshold: 60
+    severity: medium
+    message: Your readiness is low. A lighter day may help you recover.
+
+  - id: device_silent
+    when: no_data_for_hours
+    hours: 36
+    severity: medium
+    message: Your ring has not synced for a while. Check that it is charged and near your phone.
