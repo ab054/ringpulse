@@ -42,6 +42,20 @@ Plain `pytest` also works: without an Appium server or APK the emulator tests ar
 | Missing packets arrive later | After a second tap the night is `Synced` with the golden scores |
 | API goes away | `Sync failed`, error message with a retry hint, last scores kept, button usable |
 
+## What these tests do not cover
+
+The AI layer and alerts (see [ai-and-alerts.md](ai-and-alerts.md)) are not on screen yet: the app shows scores and the sync badge, not alerts. So they are tested one level down, through the API:
+
+| Chain | Where it is tested |
+|---|---|
+| Sync → queue → detector → alert → `GET /alerts` | `tests/api/test_processing.py`, including one test with the real background worker, waited on by condition |
+| Alert rules and dedup | `tests/unit/test_alert_rules.py` |
+| Model quality | `tests/data/test_model_gate.py` |
+
+The API the emulator tests start runs the background worker too (it is on by default), so a synced night is analysed during an emulator test as well. Nothing on screen depends on it yet.
+
+The next emulator test, once the app has an alerts list: sync a night with illness signs, then check one alert appears on screen, with the right text, and that syncing the same night again does not add a second one.
+
 ## When a test fails
 
 The evidence is saved to `artifacts/e2e/<test name>/` (git-ignored):

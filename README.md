@@ -31,7 +31,7 @@ Why the sync layer matters: the protocol has sequence numbers and checksums on p
 
 The AI layer and alerts (model versions, eval set, the gate that blocks a model better on average but worse on one slice) are in [docs/ai-and-alerts.md](docs/ai-and-alerts.md).
 
-[docs/test-plan.md](docs/test-plan.md) has scope, twelve risks mapped to layers, environments, and entry/exit criteria. Open findings are in [docs/known-issues.md](docs/known-issues.md).
+[docs/test-plan.md](docs/test-plan.md) has scope, twenty risks mapped to layers, environments, and entry/exit criteria. Open findings are in [docs/known-issues.md](docs/known-issues.md).
 
 ## The pipeline
 
