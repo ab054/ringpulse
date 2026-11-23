@@ -56,22 +56,41 @@ def gate(candidate: dict[str, SliceResult], baseline: dict[str, SliceResult]) ->
     for name, c in candidate.items():
         b = baseline[name]
         if c.positive and c.rate < b.rate - RECALL_SLICE_TOLERANCE:
-            problems.append(f"{name}: recall fell from {b.rate:.2f} to {c.rate:.2f}")
+            problems.append(f"{name}: caught {_count(c)} ill nights, the current model caught {_count(b)}")
         if not c.positive and c.rate > b.rate + FALSE_ALARM_TOLERANCE:
-            problems.append(f"{name}: false alarms rose from {b.rate:.2f} to {c.rate:.2f}")
+            problems.append(f"{name}: {_count(c)} false alarms, the current model had {_count(b)}")
     return problems
 
 
-def table(results: dict[str, dict[str, SliceResult]]) -> str:
+SLICE_TEXT = {
+    "calm": "healthy, ordinary night",
+    "restless": "healthy, but restless",
+    "ill": "clearly ill",
+    "mild_ill": "mildly ill (hard to see)",
+    "hrv_dropout": "ill, HRV sensor dead",
+}
+
+
+def _count(r: SliceResult) -> str:
+    return f"{round(r.rate * r.cases)}/{r.cases}"
+
+
+def report(results: dict[str, dict[str, SliceResult]]) -> str:
+    """A plain-text table for the terminal: per slice, how many nights each model got right or wrong."""
     versions = list(results)
-    lines = ["| Slice | Measures | Cases | " + " | ".join(versions) + " |",
-             "|---|---|---|" + "---|" * len(versions)]
+    header = f"{'Slice':<13}{'Nights':<27}{'Should alert?':<15}{'We count':<20}" + "".join(f"{v:>8}" for v in versions)
+    lines = [header, "-" * len(header)]
     for name in SLICES:
         first = results[versions[0]][name]
-        measure = "recall" if first.positive else "false alarms"
-        cells = " | ".join(f"{results[v][name].rate:.2f}" for v in versions)
-        lines.append(f"| {name} | {measure} | {first.cases} | {cells} |")
-    lines.append("| **all ill nights** | recall | | " + " | ".join(f"{overall_recall(results[v]):.2f}" for v in versions) + " |")
+        should, counted = ("yes", "alerts raised") if first.positive else ("no", "false alarms")
+        cells = "".join(f"{_count(results[v][name]):>8}" for v in versions)
+        lines.append(f"{name:<13}{SLICE_TEXT[name]:<27}{should:<15}{counted:<20}{cells}")
+    lines.append("-" * len(header))
+    totals = []
+    for v in versions:
+        positives = [r for r in results[v].values() if r.positive]
+        totals.append(f"{sum(round(r.rate * r.cases) for r in positives)}/{sum(r.cases for r in positives)}")
+    lines.append(f"{'All ill nights':<55}{'alerts raised':<20}" + "".join(f"{t:>8}" for t in totals))
     return "\n".join(lines)
 
 
@@ -83,12 +102,15 @@ def main(argv: list[str] | None = None) -> int:
 
     cases = build()
     baseline_version = args.baseline or active_version()
+    print(f"Eval set: {len(cases)} labelled nights from the simulator, {len(cases) // len(SLICES)} per slice.\n")
     if not args.candidate:
-        print(table({baseline_version: evaluate(baseline_version, cases)}))
+        print(f"Model {baseline_version}:\n")
+        print(report({baseline_version: evaluate(baseline_version, cases)}))
         return 0
+    print(f"Question: may {args.candidate} (candidate) replace {baseline_version} (current model)?\n")
     baseline = evaluate(baseline_version, cases)
     candidate = evaluate(args.candidate, cases)
-    print(table({baseline_version: baseline, args.candidate: candidate}))
+    print(report({baseline_version: baseline, args.candidate: candidate}))
     problems = gate(candidate, baseline)
     print()
     if problems:
@@ -97,6 +119,7 @@ def main(argv: list[str] | None = None) -> int:
             print(f"  - {p}")
         return 1
     print(f"GATE PASSED: {args.candidate} may replace {baseline_version}")
+    print("  (no slice got worse than the allowed tolerance, and overall recall is above the floor)")
     return 0
 
 
