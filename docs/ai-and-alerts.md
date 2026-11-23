@@ -42,17 +42,22 @@ python -m ai.evaluate --candidate v2 --baseline v1
 ```
 
 ```text
-| Slice | Measures | Cases | v1 | v2 |
-|---|---|---|---|---|
-| calm | false alarms | 30 | 0.00 | 0.00 |
-| restless | false alarms | 30 | 0.00 | 0.03 |
-| ill | recall | 30 | 1.00 | 1.00 |
-| mild_ill | recall | 30 | 0.77 | 0.97 |
-| hrv_dropout | recall | 30 | 1.00 | 0.87 |
-| **all ill nights** | recall | | 0.92 | 0.94 |
+Eval set: 150 labelled nights from the simulator, 30 per slice.
+
+Question: may v2 (candidate) replace v1 (current model)?
+
+Slice        Nights                     Should alert?  We count                  v1      v2
+-------------------------------------------------------------------------------------------
+calm         healthy, ordinary night    no             false alarms            0/30    0/30
+restless     healthy, but restless      no             false alarms            0/30    1/30
+ill          clearly ill                yes            alerts raised          30/30   30/30
+mild_ill     mildly ill (hard to see)   yes            alerts raised          23/30   29/30
+hrv_dropout  ill, HRV sensor dead       yes            alerts raised          30/30   26/30
+-------------------------------------------------------------------------------------------
+All ill nights                                         alerts raised          83/90   85/90
 
 GATE FAILED: v2 must not replace v1
-  - hrv_dropout: recall fell from 1.00 to 0.87
+  - hrv_dropout: caught 26/30 ill nights, the current model caught 30/30
 ```
 
 v2 is better on average: it catches many more mild cases. But it fills a missing HRV value with the
